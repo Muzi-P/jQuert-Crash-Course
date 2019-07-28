@@ -14,48 +14,126 @@
     <h1>jQuery Crash Course </h1>
    </header> 
    <div id = "container">    
-        <h1 id="heading1">Heading One</h1>
-        <p id="para1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Quisque id lectus luctus, condimentum sapien faucibus, bibendum ligula. 
+        <h1 id="heading1">Mouse Events</h1>
+        <button id = "btn1"> Button 1 </button>
+        <button id = "btn2"> Button 2 </button>
+        <p class="para1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Quisque id lectus luctus, condimentum sapien faucibus, bibendum ligula.
         In hac habitasse platea dictumst. <span>Quisque ullamcorper</span> congue 
-        consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>	
 
-        <h1 class="heading2">Heading Two</h1>
         <p class="para2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Quisque id lectus luctus, condimentum sapien faucibus, bibendum ligula.
         In hac habitasse platea dictumst. <span>Quisque ullamcorper</span> congue 
         consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>	
 
-        <ul id = "list">    
-            <li>List Item</li> 
-            <li>List Item</li> 
-            <li>List Item</li> 
-            <li>List Item</li> 
-            <li>List Item</li> 
-            <li>List Item</li> 
-            <li>List Item</li>  
-            
-        </ul>   
 
-        <input type ="button" value="Button 1">
-        <input type ="submit" value="Button 1">
-        <input type ="text">
-
-        <a href = "http://google.com">Google</a>
-        <a href = "http://yahoo.com">Yahoo</a>
+        <form id="form">
+			<label>Name</label><br>
+			<input type="text" id="name" name="name">
+			<br>
+			<label>Email</label><br>
+			<input type="text" id="email" name="email">
+			<br>
+			<label>Gender</label><br>
+			<select id="gender" name="gender">
+                <option value="female">Female</option>
+				<option value="male">Male</option>				
+			</select>
+			<br>
+			<input type="submit" value="Submit">
+		</form>
+    
    </div>
 
    <script> 
-   //$("h1#heading1").hide();
-   //$(".heading2").hide();
+        $(document).ready(function(){
+            //$("h1#heading1").hide();
+        //$(".heading2").hide();
 
-    //$('p span').css('color', 'red');
-    $('ul#list li:first').css('color', 'red');
-    $('ul#list li:nth-child(3n)').css('background-color', 'green');
-    $(':text').hide();
-    $('a[href="http://google.com"]').css('color', 'red');
-    $('a[href="http://yahoo.com"]').css('color', 'green');
+            //$('p span').css('color', 'red');
+        // $('ul#list li:first').css('color', 'red');
+            //$('ul#list li:nth-child(3n)').css('background-color', 'green');
+            //$(':text').hide();
+            ////$('a[href="http://google.com"]').css('color', 'red');
+            //$('a[href="http://yahoo.com"]').css('color', 'green'); 
+
+
+            //click event;
+           /* $('#btn1').click(function(){
+                $('.para1').hide();
+            });
+
+             $('#btn2').click(function(){
+                $('.para1').show();
+            }); */
+
+
+            /*$('#btn1').click(function(){
+                $('.para1').toggle();
+            }) */
+
+
+            //double click event
+            /*
+            $('#btn1').dblclick(function(){
+                $('.para1').toggle();
+            })*/
+
+
+            //hover event
+
+
+            /*$('#btn1').hover(function(){
+                $('.para1').toggle();
+            }); */
+
+            //move move
+
+            /*$('#btn1').mousemove(function(){
+                $('.para1').toggle();
+            }) */
+
+            /*
+            $('#btn1').mouseup(function(){
+                $('.para1').toggle();
+            })
+
+
+            $('#btn1').click(function(e){
+                console.log(e.currentTarget.id)
+            })*/
+
+
+           $('input').focus(function(){
+               $(this).css('background', 'pink');
+           })
+
+
+
+           $('input').blur(function(){
+               $(this).css('background', 'white');
+           })
+
+            $('input').keyup(function(e){
+                console.log(e.target.value);
+            })
+
+            $('select#gender').change(function(e){
+                console.log(e.target.value);
+            })
+
+
+            $('#form').submit(function(e){
+                e.preventDefault();
+                var name = $('input#name').val();
+                var email = $('input#email').val();
+                console.log(name + email);
+            })
+
+        });
+        
    </script>
 
 </body>
-</html>
+</html
